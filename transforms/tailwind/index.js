@@ -19,7 +19,8 @@ module.exports = function (file) {
 
   const cssFiles = fs.readdirSync(options.css);
   cssFiles.forEach((css) => {
-    const root = postcss.parse(fs.readFileSync(`${options.css}/${css}`));
+    const fileName = `${options.css}/${css}`;
+    const root = postcss.parse(fs.readFileSync(fileName));
 
     root.nodes
       .filter((node) => node.type === 'rule')
@@ -38,7 +39,16 @@ module.exports = function (file) {
             }
           })
           .join(' ');
-        classMappings[node.selector] = tw;
+
+        // Only create mapping if tailwind utilities exists
+        if (tw !== ' ') {
+          classMappings[node.selector] = tw.trimStart().trimEnd();
+        } else {
+          // log the class name and file name
+          fs.appendFile('UNMAPPED_SELECTORS.txt', `${fileName} : ${node.selector}\n`, (err) => {
+            if (err) throw err;
+          });
+        }
       });
   });
 

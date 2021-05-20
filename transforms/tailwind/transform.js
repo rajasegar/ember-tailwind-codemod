@@ -1,5 +1,7 @@
 const { transform } = require('ember-template-recast');
-module.exports = function ({ source }, tailwind) {
+const fs = require('fs');
+
+module.exports = function ({ source, path }, tailwind) {
   return transform({
     template: source,
     plugin() {
@@ -10,6 +12,15 @@ module.exports = function ({ source }, tailwind) {
             const klass = `.${classAttr.value.chars}`;
             if (tailwind[klass]) {
               classAttr.value.chars = tailwind[klass];
+            } else {
+              // log the component name and file name
+              fs.appendFile(
+                'UNCHANGED_COMPONENTS.txt',
+                `${path} : ${node.tag} at line ${classAttr.loc.start.line}, ${classAttr.loc.start.column}\n`,
+                (err) => {
+                  if (err) throw err;
+                }
+              );
             }
           }
         },

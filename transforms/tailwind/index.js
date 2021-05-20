@@ -15,28 +15,32 @@ function getOptions() {
 
 module.exports = function (file) {
   const options = getOptions();
-  const root = postcss.parse(fs.readFileSync(options.css));
-
   const classMappings = {};
-  root.nodes
-    .filter((node) => node.type === 'rule')
-    .forEach((node) => {
-      const declarations = node.nodes;
 
-      // Get the list of Tailwind classes
-      const tw = declarations
-        .map((decl) => {
-          // if the class and property are same, return identity
-          if (IDENTITY_CLASSES.includes(decl.prop)) {
-            return identity(decl.value);
-          } else {
-            const f = TAILWIND_CLASSES[decl.prop];
-            return f ? f(decl) : '';
-          }
-        })
-        .join(' ');
-      classMappings[node.selector] = tw;
-    });
+  const cssFiles = fs.readdirSync(options.css);
+  cssFiles.forEach((css) => {
+    const root = postcss.parse(fs.readFileSync(`${options.css}/${css}`));
+
+    root.nodes
+      .filter((node) => node.type === 'rule')
+      .forEach((node) => {
+        const declarations = node.nodes;
+
+        // Get the list of Tailwind classes
+        const tw = declarations
+          .map((decl) => {
+            // if the class and property are same, return identity
+            if (IDENTITY_CLASSES.includes(decl.prop)) {
+              return identity(decl.value);
+            } else {
+              const f = TAILWIND_CLASSES[decl.prop];
+              return f ? f(decl) : '';
+            }
+          })
+          .join(' ');
+        classMappings[node.selector] = tw;
+      });
+  });
 
   try {
     return transform(file, classMappings);

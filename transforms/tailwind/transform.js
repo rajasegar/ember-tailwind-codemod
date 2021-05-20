@@ -8,7 +8,9 @@ module.exports = function ({ source }, tailwind) {
           const classAttr = node.attributes.find((a) => a.name === 'class');
           if (classAttr) {
             const klass = `.${classAttr.value.chars}`;
-            classAttr.value.chars = tailwind[klass];
+            if (tailwind[klass]) {
+              classAttr.value.chars = tailwind[klass];
+            }
           }
         },
       };

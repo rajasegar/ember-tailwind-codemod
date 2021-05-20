@@ -12,10 +12,9 @@ module.exports = function ({ source, path }, tailwind) {
             const classes = classAttr.value.chars.split(' ');
             const newClass = [];
             classes.forEach((c) => {
-              const klass = `.${c}`;
-              if (tailwind[klass]) {
-                //classAttr.value.chars = tailwind[klass];
-                newClass.push(tailwind[klass]);
+              const selector = `.${c}`;
+              if (tailwind[selector]) {
+                newClass.push(tailwind[selector]);
               } else {
                 // log the component name and file name
                 fs.appendFile(

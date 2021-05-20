@@ -55,6 +55,7 @@ module.exports = function (file) {
   });
 
   try {
+    console.log(classMappings);
     return transform(file, classMappings);
   } catch (e) {
     throw new Error(

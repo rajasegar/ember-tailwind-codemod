@@ -40,6 +40,8 @@ module.exports = function (file) {
           })
           .join(' ');
 
+        // TODO: what about partial mappings, we should log
+
         // Only create mapping if tailwind utilities exists
         if (tw !== ' ') {
           classMappings[node.selector] = tw.trimStart().trimEnd();

@@ -2,6 +2,7 @@ const utils = require('./utils');
 
 const IDENTITY_CLASSES = ['position'];
 
+// TODO: destructure methods from utils
 const TAILWIND_CLASSES = {
   display: utils.getDisplay,
   padding: utils.getPadding,

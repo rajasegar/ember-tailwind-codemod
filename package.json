@@ -7,7 +7,8 @@
     "test:coverage": "codemod-cli test --coverage",
     "update-docs": "codemod-cli update-docs",
     "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
-    "copy": "cp ../super-rentals/app/components/*.hbs ./demo/templates && cp ../super-rentals/app/templates/*.hbs ./demo/templates && cp ../super-rentals/dist/assets/*.css ./demo/css"
+    "copy": "cp ../super-rentals/app/components/*.hbs ./demo/templates && cp ../super-rentals/app/templates/*.hbs ./demo/templates && cp ../super-rentals/dist/assets/*.css ./demo/css",
+    "demo": "node ./bin/cli.js ./demo/templates/*.hbs --css=./demo/css --extensions=hbs"
   },
   "bin": "./bin/cli.js",
   "keywords": [

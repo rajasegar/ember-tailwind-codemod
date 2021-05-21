@@ -41,7 +41,7 @@ There are two log files that will be generated to assist you with Tailwind migra
 - `UNMAPPED_SELECTORS.txt` => Contains the selectors in your CSS for which there is no conversion.
 - `UNCHANGED_COMPONENTS.txt` => Contains the list of component names for which the class attributes are not changed.
 
-By looking at the above files, after running the codemods, you can manually do the migration because the codemod won't be able to do 100% migration of your CSS and some manual intervention is required.
+By looking at the above files, after running the codemods, you can manually complete the migration because the codemod won't be able to do 100% migration of your CSS and some manual intervention is required.
 
 
 ## How it works?

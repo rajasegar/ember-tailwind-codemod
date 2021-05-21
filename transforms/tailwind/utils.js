@@ -1,3 +1,5 @@
+'use strict';
+
 const getBorderStyle = (decl) => getCustomPrefix(decl, 'border');
 
 // Get the same prefix value as prop name
@@ -106,6 +108,28 @@ const getMargin = (decl) => {
   return valueMappings[decl.value];
 };
 
+const getOverscrollBehavior = (decl) => getCustomPrefix(decl, 'overscroll');
+const getOverscrollBehaviorX = (decl) => getCustomPrefix(decl, 'overscroll-x');
+const getOverscrollBehaviorY = (decl) => getCustomPrefix(decl, 'overscroll-y');
+
+const getVisibility = (decl) => {
+  return decl.value === 'visible' ? 'visible' : 'invisible';
+};
+
+const getZIndex = (decl) => {
+  const valueMappings = {
+    0: 'z-0',
+    10: 'z-10',
+    20: 'z-20',
+    30: 'z-30',
+    40: 'z-40',
+    50: 'z-50',
+    auto: 'z-auto',
+  };
+
+  return valueMappings[decl.value];
+};
+
 module.exports = {
   getTextDecoration,
   getPrefix,
@@ -128,4 +152,9 @@ module.exports = {
   getWhiteSpace,
   getIsolation,
   getMargin,
+  getOverscrollBehavior,
+  getOverscrollBehaviorY,
+  getOverscrollBehaviorX,
+  getVisibility,
+  getZIndex,
 };

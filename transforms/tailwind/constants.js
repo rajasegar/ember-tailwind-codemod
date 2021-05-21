@@ -19,6 +19,11 @@ const {
   getAlignContent,
   getWhiteSpace,
   getMargin,
+  getOverscrollBehavior,
+  getOverscrollBehaviorY,
+  getOverscrollBehaviorX,
+  getVisibility,
+  getZIndex,
 } = require('./utils');
 
 const IDENTITY_CLASSES = ['position'];
@@ -45,6 +50,11 @@ const TAILWIND_CLASSES = {
   'align-content': getAlignContent,
   'white-space': getWhiteSpace,
   margin: getMargin,
+  'overscroll-behavior': getOverscrollBehavior,
+  'overscroll-behavior-y': getOverscrollBehaviorY,
+  'overscroll-behavior-x': getOverscrollBehaviorX,
+  visibility: getVisibility,
+  'z-index': getZIndex,
 };
 
 module.exports = {

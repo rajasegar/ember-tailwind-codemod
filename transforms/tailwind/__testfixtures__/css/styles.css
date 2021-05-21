@@ -34,3 +34,31 @@
 .etc-clear-none {
   clear: none;
 }
+
+.etc-overscroll-auto {
+  overscroll-behavior: auto;
+}
+.etc-overscroll-contain {
+  overscroll-behavior: contain;
+}
+.etc-overscroll-none {
+  overscroll-behavior: none;
+}
+.etc-overscroll-y-auto {
+  overscroll-behavior: y-auto;
+}
+.etc-overscroll-auto {
+  overscroll-behavior: auto;
+}
+.etc-overscroll-auto {
+  overscroll-behavior: auto;
+}
+.etc-overscroll-auto {
+  overscroll-behavior: auto;
+}
+.etc-overscroll-auto {
+  overscroll-behavior: auto;
+}
+.etc-overscroll-auto {
+  overscroll-behavior: auto;
+}

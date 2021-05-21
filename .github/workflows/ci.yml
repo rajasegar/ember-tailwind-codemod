@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - master
-      #- main
+      - main
       - 'v*' # older version branches
     tags:
       - '*'
@@ -33,7 +33,7 @@ jobs:
 
     strategy:
       matrix:
-        node: ['10', '12', '14']
+        node: ['12', '14', '16']
 
     steps:
     - uses: actions/checkout@v1

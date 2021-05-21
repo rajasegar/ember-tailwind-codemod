@@ -1,6 +1,6 @@
 # ember-tailwind-codemod
 
-A Codemod to convert plain CSS class definitions into Tailwind utilities for your Ember Components
+A Codemod to convert plain CSS class definitions into [Tailwind](https://tailwindcss.com) utilities for your Ember Components
 
 ### Installation
 
@@ -26,7 +26,7 @@ You have to pass the CSS build assets dir path to parse the CSS for conversion. 
 npx ember-tailwind-codemod app/templates --css=dist/assets/
 ```
 
-You have to setup [Tailwind CSS]() manually for your Ember project. This codemod will only do the conversion.
+You have to setup [Tailwind CSS](https://tailwindcss.com) manually for your Ember project. This codemod will only do the conversion.
 
 ## Things to to before running the command
 Before running the codemod in your Ember project, please ensure you generate the CSS assets through your build. Since the codemod needs the final CSS to parse your class definitions and generate the Tailwind utilities.
@@ -38,8 +38,8 @@ ember build --environment=production
 
 ## Logs
 There are two log files that will be generated to assist you with Tailwind migration. They are
-- UNMAPPED_SELECTORS => Contains the selectors in your CSS for which there is no conversion.
-- UNCHANGED_COMPONENTS => Contains the list of component names for which the class attributes are not changed.
+- `UNMAPPED_SELECTORS.txt` => Contains the selectors in your CSS for which there is no conversion.
+- `UNCHANGED_COMPONENTS.txt` => Contains the list of component names for which the class attributes are not changed.
 
 By looking at the above files, after running the codemods, you can manually do the migration because the codemod won't be able to do 100% migration of your CSS and some manual intervention is required.
 
@@ -47,7 +47,7 @@ By looking at the above files, after running the codemods, you can manually do t
 ## How it works?
 - First it constructs the Tailwind utilities from your CSS selectors and store it in a map.
 - Second, it will look into each of your hbs files for Components or ElementNodes with class attributes
-- Third, it will try to find the selector mapping from the map from class names.
+- Then, it will try to find the selector mapping from the map from class names.
 - Finally, if it have a mapping it will replace the class attribute values with Tailwind utilities.
 
 
@@ -74,7 +74,7 @@ node ./bin/cli.js path/of/files/ or/some**/*glob.js
 
 ## FAQs
 ### Will the codemod automatically setup Tailwind for our projects?
-NO, the codemod will only do the conversion to Tailwind utilities, you have to manually setup Tailwind for your Ember project. 
+**NO**, the codemod will only do the conversion to Tailwind utilities, you have to manually setup Tailwind for your Ember project. 
 You can take a look at the following resources for the same:
 - https://github.com/embermap/ember-cli-tailwind
 - https://embermap.com/topics/using-functional-css-with-ember/getting-started-with-tailwind-css

@@ -1,4 +1,36 @@
 .hello {
   text-align: center;
   margin: 0;
+  text-decoration: underline;
+  display: block;
+  padding: 0;
+  overflow: auto;
+}
+
+.etc-opacity-0 {
+  opacity: 0;
+}
+
+.etc-opacity-1 {
+  opacity: 1;
+}
+
+.etc-float-left {
+  float: left;
+}
+.etc-float-right {
+  float: right;
+}
+
+.etc-clear-left {
+  clear: left;
+}
+.etc-clear-right {
+  clear: right;
+}
+.etc-clear-both {
+  clear: both;
+}
+.etc-clear-none {
+  clear: none;
 }

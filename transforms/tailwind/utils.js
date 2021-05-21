@@ -98,6 +98,14 @@ const getIsolation = (decl) => {
   return decl.value === 'isolate' ? 'isoldate' : 'isolation-auto';
 };
 
+const getMargin = (decl) => {
+  const valueMappings = {
+    0: 'm-0',
+    '0px': 'm-0',
+  };
+  return valueMappings[decl.value];
+};
+
 module.exports = {
   getTextDecoration,
   getPrefix,
@@ -119,4 +127,5 @@ module.exports = {
   getAlignContent,
   getWhiteSpace,
   getIsolation,
+  getMargin,
 };

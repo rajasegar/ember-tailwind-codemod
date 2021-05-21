@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "scripts": {
     "lint": "eslint --cache .",
-    "test": "codemod-cli test",
+    "test": "codemod-cli test --coverage",
     "test:coverage": "codemod-cli test --coverage",
     "update-docs": "codemod-cli update-docs",
     "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",

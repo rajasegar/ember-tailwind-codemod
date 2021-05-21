@@ -2,3 +2,4 @@
 /.eslintcache
 /demo
 *.txt
+/coverage

@@ -18,11 +18,11 @@ const {
   getTextAlign,
   getAlignContent,
   getWhiteSpace,
+  getMargin,
 } = require('./utils');
 
 const IDENTITY_CLASSES = ['position'];
 
-// TODO: destructure methods from utils
 const TAILWIND_CLASSES = {
   display: getDisplay,
   padding: getPadding,
@@ -44,6 +44,7 @@ const TAILWIND_CLASSES = {
   'text-align': getTextAlign,
   'align-content': getAlignContent,
   'white-space': getWhiteSpace,
+  margin: getMargin,
 };
 
 module.exports = {

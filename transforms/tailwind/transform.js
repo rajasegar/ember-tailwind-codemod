@@ -36,5 +36,3 @@ module.exports = function ({ source, path }, tailwind) {
     },
   }).code;
 };
-
-module.exports.type = 'hbs';

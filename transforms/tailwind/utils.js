@@ -22,6 +22,7 @@ function getOpacity(decl) {
 //}
 
 const getObjectFit = (decl) => getCustomPrefix(decl, 'object');
+const getObjectPosition = (decl) => getCustomPrefix(decl, 'object');
 
 const getDisplay = (decl) => {
   if (decl.value === 'none') return 'hidden';
@@ -93,12 +94,17 @@ const getTextAlign = (decl) => {
 
 const getWhiteSpace = (decl) => getCustomPrefix(decl, 'whitespace');
 
+const getIsolation = (decl) => {
+  return decl.value === 'isolate' ? 'isoldate' : 'isolation-auto';
+};
+
 module.exports = {
   getTextDecoration,
   getPrefix,
   getDisplay,
   getCustomPrefix,
   getObjectFit,
+  getObjectPosition,
   getPadding,
   getOpacity,
   getBorderStyle,
@@ -112,4 +118,5 @@ module.exports = {
   getTextAlign,
   getAlignContent,
   getWhiteSpace,
+  getIsolation,
 };

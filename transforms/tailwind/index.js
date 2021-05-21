@@ -55,7 +55,7 @@ module.exports = function (file) {
   });
 
   try {
-    console.log(classMappings);
+    //console.log(classMappings);
     return transform(file, classMappings);
   } catch (e) {
     throw new Error(
@@ -63,3 +63,5 @@ module.exports = function (file) {
     );
   }
 };
+
+module.exports.type = 'hbs';

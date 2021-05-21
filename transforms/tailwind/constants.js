@@ -1,29 +1,49 @@
-const utils = require('./utils');
+'use strict';
+
+const {
+  getTextDecoration,
+  getPrefix,
+  getDisplay,
+  getObjectFit,
+  getPadding,
+  getOpacity,
+  getBorderStyle,
+  getFontWeight,
+  getLineHeight,
+  getFlexWrap,
+  getFlexGrow,
+  getFlexShrink,
+  getJustifyContent,
+  getAlignItems,
+  getTextAlign,
+  getAlignContent,
+  getWhiteSpace,
+} = require('./utils');
 
 const IDENTITY_CLASSES = ['position'];
 
 // TODO: destructure methods from utils
 const TAILWIND_CLASSES = {
-  display: utils.getDisplay,
-  padding: utils.getPadding,
-  border: utils.getPrefix,
-  overflow: utils.getPrefix,
-  'border-style': utils.getBorderStyle,
-  opacity: utils.getOpacity,
-  float: utils.getPrefix,
-  clear: utils.getPrefix,
-  'object-fit': utils.getObjectFit,
-  'text-decoration': utils.getTextDecoration,
-  'font-weight': utils.getFontWeight,
-  'line-height': utils.getLineHeight,
-  'flex-wrap': utils.getFlexWrap,
-  'flex-grow': utils.getFlexGrow,
-  'flex-shrink': utils.getFlexShrink,
-  'justify-content': utils.getJustifyContent,
-  'align-items': utils.getAlignItems,
-  'text-align': utils.getTextAlign,
-  'align-content': utils.getAlignContent,
-  'white-space': utils.getWhiteSpace,
+  display: getDisplay,
+  padding: getPadding,
+  border: getPrefix,
+  overflow: getPrefix,
+  'border-style': getBorderStyle,
+  opacity: getOpacity,
+  float: getPrefix,
+  clear: getPrefix,
+  'object-fit': getObjectFit,
+  'text-decoration': getTextDecoration,
+  'font-weight': getFontWeight,
+  'line-height': getLineHeight,
+  'flex-wrap': getFlexWrap,
+  'flex-grow': getFlexGrow,
+  'flex-shrink': getFlexShrink,
+  'justify-content': getJustifyContent,
+  'align-items': getAlignItems,
+  'text-align': getTextAlign,
+  'align-content': getAlignContent,
+  'white-space': getWhiteSpace,
 };
 
 module.exports = {

@@ -2,7 +2,7 @@
 
 const { runTransformTest } = require('codemod-cli');
 
+debugger;
 runTransformTest({
   name: 'tailwind',
-  '--css=super-rental.css',
 });

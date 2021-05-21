@@ -59,6 +59,7 @@ node ./bin/cli.js path/of/files/ or/some**/*glob.js
 ## Transforms
 
 <!--TRANSFORMS_START-->
+* [tailwind](transforms/tailwind/README.md)
 <!--TRANSFORMS_END-->
 
 ## Contributing

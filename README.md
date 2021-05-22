@@ -13,12 +13,12 @@ npm install --global ember-tailwind-codemod
 To run the codemod, you would enter the following command in your terminal:
 
 ```
-npx ember-tailwind-codemod  path/of/files/ or/some**/*glob.js --css=dist/assets
+npx ember-tailwind-codemod  path/of/files --css=dist/assets
 
 # or
 
 yarn global add ember-tailwind-codemod
-ember-tailwind-codemod  path/of/files/ or/some**/*glob.js --css=dist/assets
+ember-tailwind-codemod  path/of/files --css=dist/assets
 ```
 
 You have to pass the CSS build assets dir path to parse the CSS for conversion. **It is mandatory**

@@ -17,7 +17,8 @@ module.exports = function (file, parser, opts) {
   const options = opts || getOptions();
   const classMappings = {};
 
-  const cssFiles = fs.readdirSync(options.css);
+  // filter only css files
+  const cssFiles = fs.readdirSync(options.css).filter((dirContent) => dirContent.endsWith('.css'));
   cssFiles.forEach((css) => {
     const fileName = `${options.css}/${css}`;
     const root = postcss.parse(fs.readFileSync(fileName));

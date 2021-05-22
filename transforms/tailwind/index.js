@@ -13,8 +13,8 @@ function getOptions() {
   return { ...options, ...cliOptions };
 }
 
-module.exports = function (file) {
-  const options = getOptions();
+module.exports = function (file, parser, opts) {
+  const options = opts || getOptions();
   const classMappings = {};
 
   const cssFiles = fs.readdirSync(options.css);

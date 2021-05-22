@@ -8,16 +8,22 @@
     "update-docs": "codemod-cli update-docs",
     "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
     "copy": "cp ../super-rentals/app/components/*.hbs ./demo/templates && cp ../super-rentals/app/templates/*.hbs ./demo/templates && cp ../super-rentals/dist/assets/*.css ./demo/css",
-    "demo": "node ./bin/cli.js ./demo/templates/*.hbs --css=./demo/css --extensions=hbs"
+    "demo": "./bin/cli.js demo/templates --css=demo/css",
+    "clean": "npm run copy && rm *.txt"
   },
   "bin": "./bin/cli.js",
   "keywords": [
     "codemod-cli"
   ],
   "dependencies": {
+    "chalk": "^4.1.1",
     "codemod-cli": "^3.1.2",
     "ember-template-recast": "^5.0.3",
-    "postcss": "^8.2.15"
+    "globby": "^11.0.3",
+    "minimist": "^1.2.5",
+    "ora": "^5.4.0",
+    "postcss": "^8.2.15",
+    "workerpool": "^6.1.4"
   },
   "devDependencies": {
     "coveralls": "^3.1.0",

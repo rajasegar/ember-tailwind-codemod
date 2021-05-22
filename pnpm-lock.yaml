@@ -1,6 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
+  chalk: ^4.1.1
   codemod-cli: ^3.1.2
   coveralls: ^3.1.0
   ember-template-recast: ^5.0.3
@@ -8,14 +9,23 @@ specifiers:
   eslint-config-prettier: ^8.3.0
   eslint-plugin-node: ^11.1.0
   eslint-plugin-prettier: ^3.4.0
+  globby: ^11.0.3
   jest: ^26.6.3
+  minimist: ^1.2.5
+  ora: ^5.4.0
   postcss: ^8.2.15
   prettier: ^2.3.0
+  workerpool: ^6.1.4
 
 dependencies:
-  codemod-cli: 3.1.2
+  chalk: 4.1.1
+  codemod-cli: github.com/rajasegar/codemod-cli/a3cdaf67693ce5045fbcd02336a51b6f5f5ae464
   ember-template-recast: 5.0.3
+  globby: 11.0.3
+  minimist: 1.2.5
+  ora: 5.4.0
   postcss: 8.2.15
+  workerpool: 6.1.4
 
 devDependencies:
   coveralls: 3.1.0
@@ -1434,30 +1444,6 @@ packages:
     resolution: {integrity: sha1-bqa989hTrlTMuOR7+gvz+QMfsYQ=}
     engines: {iojs: '>= 1.0.0', node: '>= 0.12.0'}
     dev: true
-
-  /codemod-cli/3.1.2:
-    resolution: {integrity: sha512-oaayOJaqpeYBufM7DOOCgxKuvWFxDWibUxbAOvi0zDsDEMy2B2Wux41bPU+74yAlN99xwUpTZDWdDBk613NLhw==}
-    engines: {node: 10.* || 12.* || >= 14}
-    hasBin: true
-    dependencies:
-      '@babel/parser': 7.14.3
-      chalk: 4.1.1
-      common-tags: 1.8.0
-      ember-template-recast: 4.3.0
-      execa: 5.0.0
-      fs-extra: 9.1.0
-      globby: 11.0.3
-      import-cwd: 3.0.0
-      import-local: 3.0.2
-      jscodeshift: 0.11.0
-      latest-version: 5.1.0
-      pkg-up: 3.1.0
-      recast: 0.20.4
-      yargs: 16.2.0
-    transitivePeerDependencies:
-      - '@babel/preset-env'
-      - supports-color
-    dev: false
 
   /collect-v8-coverage/1.0.1:
     resolution: {integrity: sha512-iBPtljfCNcTKNAto0KEtDfZ3qzjJvqE3aTGZsbhjSBlorqpXJlaWWtPO35D+ZImoC3KWejX64o+yPGxhWSTzfg==}
@@ -4987,4 +4973,30 @@ packages:
       string-width: 4.2.2
       y18n: 5.0.8
       yargs-parser: 20.2.7
+    dev: false
+
+  github.com/rajasegar/codemod-cli/a3cdaf67693ce5045fbcd02336a51b6f5f5ae464:
+    resolution: {registry: https://registry.npmjs.org/, tarball: https://codeload.github.com/rajasegar/codemod-cli/tar.gz/a3cdaf67693ce5045fbcd02336a51b6f5f5ae464}
+    name: codemod-cli
+    version: 3.1.2
+    engines: {node: 10.* || 12.* || >= 14}
+    hasBin: true
+    dependencies:
+      '@babel/parser': 7.14.3
+      chalk: 4.1.1
+      common-tags: 1.8.0
+      ember-template-recast: 4.3.0
+      execa: 5.0.0
+      fs-extra: 9.1.0
+      globby: 11.0.3
+      import-cwd: 3.0.0
+      import-local: 3.0.2
+      jscodeshift: 0.11.0
+      latest-version: 5.1.0
+      pkg-up: 3.1.0
+      recast: 0.20.4
+      yargs: 16.2.0
+    transitivePeerDependencies:
+      - '@babel/preset-env'
+      - supports-color
     dev: false

@@ -3,6 +3,7 @@ const fs = require('fs');
 const transform = require('./transform');
 
 const postcss = require('postcss');
+const parsel = require('./parsel');
 
 const identity = (value) => value;
 const { TAILWIND_CLASSES, IDENTITY_CLASSES } = require('./constants');
@@ -13,9 +14,20 @@ function getOptions() {
   return { ...options, ...cliOptions };
 }
 
+function getSelectorType(selector) {
+  const ast = parsel.parse(selector);
+  return ast.type;
+}
 module.exports = function (file, parser, opts) {
   const options = opts || getOptions();
-  const classMappings = {};
+
+  // different selector types based on parsel
+  const tailwindMappings = {
+    classes: {},
+    elements: {},
+    combinators: {},
+    compounds: {},
+  };
 
   // filter only css files
   const cssFiles = fs.readdirSync(options.css).filter((dirContent) => dirContent.endsWith('.css'));
@@ -44,8 +56,19 @@ module.exports = function (file, parser, opts) {
         // TODO: what about partial mappings, we should log
 
         // Only create mapping if tailwind utilities exists
+        const selectorType = getSelectorType(node.selector);
         if (tw !== ' ') {
-          classMappings[node.selector] = tw.trimStart().trimEnd();
+          if (selectorType === 'class') {
+            tailwindMappings.classes[node.selector] = tw.trimStart().trimEnd();
+          } else if (selectorType === 'type') {
+            tailwindMappings.elements[node.selector] = tw.trimStart().trimEnd();
+          } else if (selectorType === 'complex') {
+            tailwindMappings.combinators[node.selector] = tw.trimStart().trimEnd();
+          } else {
+            // remove new line chars from selectors
+            const _selector = node.selector.replace('\n', '');
+            tailwindMappings.compounds[_selector] = tw.trimStart().trimEnd();
+          }
         } else {
           // log the class name and file name
           fs.appendFile('UNMAPPED_SELECTORS.txt', `${fileName} : ${node.selector}\n`, (err) => {
@@ -56,8 +79,8 @@ module.exports = function (file, parser, opts) {
   });
 
   try {
-    //console.log(classMappings);
-    return transform(file, classMappings);
+    console.log(tailwindMappings);
+    return transform(file, tailwindMappings);
   } catch (e) {
     throw new Error(
       `Transformation errored on file ${file.path}. Reason ${e}. Please report this in https://github.com/rajasegar/ember-tailwind-codemod/issues\n\nStack trace:\n${e.stack}`

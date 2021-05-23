@@ -4,7 +4,8 @@ const fs = require('fs');
 module.exports = function ({ source, path }, tailwind) {
   return transform({
     template: source,
-    plugin() {
+    plugin(env) {
+      let { builders: b } = env.syntax;
       return {
         ElementNode(node) {
           const classAttr = node.attributes.find((a) => a.name === 'class');
@@ -13,8 +14,8 @@ module.exports = function ({ source, path }, tailwind) {
             const newClass = [];
             classes.forEach((c) => {
               const selector = `.${c}`;
-              if (tailwind[selector]) {
-                newClass.push(tailwind[selector]);
+              if (tailwind.classes[selector]) {
+                newClass.push(tailwind.classes[selector]);
               } else {
                 // log the component name and file name
                 fs.appendFile(
@@ -27,10 +28,24 @@ module.exports = function ({ source, path }, tailwind) {
               }
             });
 
-            if (newClass.length) {
+            if (newClass.length > 0) {
               classAttr.value.chars = newClass.join(' ').trimEnd();
             }
           }
+
+          // apply utilities for elements
+          Object.keys(tailwind.elements).forEach((el) => {
+            if (node.tag === el) {
+              // add class attr
+              if (classAttr) {
+                classAttr.value.chars.concat([' ', tailwind.elements[node.tag]]);
+              } else {
+                node.attributes.push(b.attr('class', b.text(tailwind.elements[node.tag])));
+              }
+            }
+          });
+
+          // apply utilities for combinators
         },
       };
     },

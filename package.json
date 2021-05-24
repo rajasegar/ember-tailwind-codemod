@@ -9,12 +9,20 @@
     "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
     "copy": "cp ../super-rentals/app/components/*.hbs ./demo/templates && cp ../super-rentals/app/templates/*.hbs ./demo/templates && cp ../super-rentals/dist/assets/*.css ./demo/css",
     "demo": "./bin/cli.js demo/templates --css=demo/css",
-    "clean": "npm run copy && rm *.txt"
+    "clean": "npm run copy && rm *.txt",
+    "deploy": "git push && git push --tags && npm publish"
   },
   "bin": "./bin/cli.js",
   "keywords": [
-    "codemod-cli"
+    "ember",
+    "tailwindcss",
+    "tailwind",
+    "codemod",
+    "emberjs"
   ],
+  "author": "Rajasegar Chandran <rajasegar.c@gmail.com>",
+  "license": "MIT",
+  "repository": "https://github.com/rajasegar/ember-tailwind-codemod",
   "dependencies": {
     "chalk": "^4.1.1",
     "codemod-cli": "^3.1.2",

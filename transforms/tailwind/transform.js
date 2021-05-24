@@ -27,7 +27,15 @@ module.exports = function ({ source, path }, tailwind) {
           enter(node) {
             const classAttr = node.attributes.find((a) => a.name === 'class');
             if (classAttr) {
-              const classes = classAttr.value.chars.split(' ');
+              let classes = [];
+              if (classAttr.value.type === 'TextNode') {
+                classes = classAttr.value.chars.split(' ');
+              } else {
+                // Assuming it is a ConcatStatement here, might be wrong
+                classes = classAttr.value.parts
+                  .filter((p) => p.type === 'TextNode')
+                  .map((p) => p.chars);
+              }
               const newClass = [];
               classes.forEach((c) => {
                 const selector = `.${c}`;
@@ -55,7 +63,11 @@ module.exports = function ({ source, path }, tailwind) {
               if (node.tag === el) {
                 // add class attr
                 if (classAttr) {
-                  classAttr.value.chars.concat([' ', tailwind.elements[node.tag]]);
+                  if (classAttr.value.type === 'TextNode') {
+                    classAttr.value.chars.concat([' ', tailwind.elements[node.tag]]);
+                  } else {
+                    classAttr.value.parts.push(b.text(tailwind.elements[node.tag]));
+                  }
                 } else {
                   node.attributes.push(b.attr('class', b.text(tailwind.elements[node.tag])));
                 }
@@ -93,7 +105,14 @@ function isAllVisited(visited) {
 
 function classMatch(node, selector) {
   const classAttr = node.attributes.find((a) => a.name === 'class');
-  const values = classAttr && classAttr.value.chars.split(' ');
+  let values = [];
+  if (classAttr) {
+    if (classAttr.value.type === 'TextNode') {
+      values = classAttr.value.chars.split(' ');
+    } else {
+      values = classAttr.value.parts.filter((p) => p.type === 'TextNode').map((p) => p.chars);
+    }
+  }
   const className = selector.replace('.', '');
   return values && values.includes(className);
 }

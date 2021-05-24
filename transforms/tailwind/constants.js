@@ -33,6 +33,7 @@ const {
   getGridTemplateColumns,
   getGridAutoFlow,
   getGridAutoColumns,
+  getGridAutoRows,
 } = require('./utils/flexbox-grid');
 
 const IDENTITY_CLASSES = ['position'];
@@ -70,6 +71,7 @@ const TAILWIND_CLASSES = {
   'grid-template-columns': getGridTemplateColumns,
   'grid-auto-flow': getGridAutoFlow,
   'grid-auto-columns': getGridAutoColumns,
+  'grid-auto-rows': getGridAutoRows,
 };
 
 module.exports = {

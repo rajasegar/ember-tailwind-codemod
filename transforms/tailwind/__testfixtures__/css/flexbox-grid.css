@@ -159,3 +159,17 @@
 .etc-auto-cols-fr {
   grid-auto-columns: minmax(0, 1fr);
 }
+
+
+.etc-auto-rows-auto {
+  grid-auto-rows: auto;
+}
+.etc-auto-rows-min {
+  grid-auto-rows: min-content;
+}
+.etc-auto-rows-max {
+  grid-auto-rows: max-content;
+}
+.etc-auto-rows-fr {
+  grid-auto-rows: minmax(0, 1fr);
+}

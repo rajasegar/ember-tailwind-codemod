@@ -37,30 +37,13 @@ const getTextDecoration = (decl) => {
 };
 
 const getFontWeight = (decl) => {
-  const weights = {
-    100: 'font-thin',
-    200: 'font-extralight',
-    300: 'font-light',
-    400: 'font-normal',
-    500: 'font-medium',
-    600: 'font-semibold',
-    700: 'font-bold',
-    800: 'font-extrabold',
-    900: 'font-black',
-  };
+  const weights = {};
 
   return weights[decl.value];
 };
 
 const getLineHeight = (decl) => {
-  const heights = {
-    1: 'leading-none',
-    1.25: 'leading-tight',
-    1.375: 'leading-snug',
-    1.5: 'leading-normal',
-    1.625: 'leading-relaxed',
-    2: 'leading-loose',
-  };
+  const heights = {};
   return heights[decl.value];
 };
 
@@ -108,15 +91,7 @@ const getVisibility = (decl) => {
 };
 
 const getZIndex = (decl) => {
-  const valueMappings = {
-    0: 'z-0',
-    10: 'z-10',
-    20: 'z-20',
-    30: 'z-30',
-    40: 'z-40',
-    50: 'z-50',
-    auto: 'z-auto',
-  };
+  const valueMappings = {};
 
   return valueMappings[decl.value];
 };

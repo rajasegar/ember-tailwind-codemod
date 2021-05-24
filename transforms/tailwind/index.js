@@ -47,8 +47,8 @@ module.exports = function (file, parser, opts) {
             if (IDENTITY_CLASSES.includes(decl.prop)) {
               return identity(decl.value);
             } else {
-              const f = TAILWIND_CLASSES[decl.prop];
-              return f ? f(decl) : '';
+              const prop = TAILWIND_CLASSES[decl.prop];
+              return prop ? prop[decl.value] : '';
             }
           })
           .join(' ');

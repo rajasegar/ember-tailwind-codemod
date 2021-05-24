@@ -64,15 +64,6 @@ const getLineHeight = (decl) => {
   return heights[decl.value];
 };
 
-const getFlexWrap = (decl) => getCustomPrefix(decl, 'flex');
-const getFlexGrow = (decl) => {
-  return decl.value === '1' ? decl.prop : `${decl.prop}-${decl.value}`;
-};
-
-const getFlexShrink = (decl) => {
-  return decl.value === '1' ? decl.prop : `${decl.prop}-${decl.value}`;
-};
-
 const getJustifyContent = (decl) => {
   let value = decl.value.replace('flex-', '');
   value = value.replace('space-', '');
@@ -142,9 +133,6 @@ module.exports = {
   getBorderStyle,
   getFontWeight,
   getLineHeight,
-  getFlexWrap,
-  getFlexGrow,
-  getFlexShrink,
   getJustifyContent,
   getAlignItems,
   getTextAlign,

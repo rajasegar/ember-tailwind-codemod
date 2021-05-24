@@ -1,0 +1,161 @@
+.etc-flex-direction-row {
+  flex-direction: row;
+}
+.etc-flex-direction-row-reverse {
+  flex-direction: row-reverse;
+}
+.etc-flex-direction-column {
+  flex-direction: column;
+}
+.etc-flex-direction-column-reverse {
+  flex-direction: column-reverse;
+}
+
+.etc-flex-wrap {
+  flex-wrap: wrap;
+}
+.etc-flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+.etc-flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+.etc-flex-1 {
+  flex: 1 1 0%;
+}
+.etc-flex-auto {
+  flex: 1 1 auto;
+}
+.etc-flex-initial {
+  flex: 0 1 auto;
+}
+.etc-flex-none {
+  flex:none;
+}
+
+.etc-flex-grow-0 {
+  flex-grow: 0;
+}
+.etc-flex-grow {
+  flex-grow: 1;
+}
+
+.etc-flex-shrink-0 {
+  flex-shrink: 0;
+}
+.etc-flex-shrink {
+  flex-shrink: 1;
+}
+
+.etc-order-1 {
+  order: 1;
+}
+.etc-order-2 {
+  order: 2;
+}
+.etc-order-3 {
+  order: 3;
+}
+.etc-order-4 {
+  order: 4;
+}
+.etc-order-5 {
+  order: 5;
+}
+.etc-order-6 {
+  order: 6;
+}
+.etc-order-7 {
+  order: 7;
+}
+.etc-order-8 {
+  order: 8;
+}
+.etc-order-9 {
+  order: 9;
+}
+.etc-order-10 {
+  order: 10;
+}
+.etc-order-11 {
+  order: 11;
+}
+.etc-order-12 {
+  order: 12;
+}
+.etc-order-first {
+  order: -9999;
+}
+.etc-order-last {
+  order: 9999;
+}
+.etc-order-none {
+  order: 0;
+}
+
+.etc-grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+.etc-grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.etc-grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.etc-grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.etc-grid-cols-5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.etc-grid-cols-6 {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+.etc-grid-cols-7 {
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+.etc-grid-cols-8 {
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+}
+.etc-grid-cols-9 {
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+}
+.etc-grid-cols-10 {
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+}
+.etc-grid-cols-11 {
+  grid-template-columns: repeat(11, minmax(0, 1fr));
+}
+.etc-grid-cols-12 {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+.etc-grid-cols-none {
+  grid-template-columns: none;
+}
+
+.etc-grid-flow-row {
+  grid-auto-flow: row;
+}
+.etc-grid-flow-col {
+  grid-auto-flow: column;
+}
+.etc-grid-flow-row-dense {
+  grid-auto-flow: row dense;
+}
+.etc-grid-flow-col-dense {
+  grid-auto-flow: column dense;
+}
+
+.etc-auto-cols-auto {
+  grid-auto-columns: auto;
+}
+.etc-auto-cols-min {
+  grid-auto-columns: min-content;
+}
+.etc-auto-cols-max {
+  grid-auto-columns: max-content;
+}
+.etc-auto-cols-fr {
+  grid-auto-columns: minmax(0, 1fr);
+}

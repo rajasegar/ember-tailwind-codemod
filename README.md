@@ -84,7 +84,7 @@ You can take a look at the following resources for the same:
 - https://balinterdi.com/blog/ember-tailwind-css-postcss-import/
 
 ## Are there any caveats?
-Yes, for the first cut, this codemod will only be able to support class name conversions, which means, other CSS selectors like element name, parent-child, nested selectors are 
+Yes, for the first cut, this codemod will only be able to support class selectors, element selectors and combinators, which means, other CSS selectors like pseudo-class selectors, pseudo-elements and attribute selectors, child selector, adjacent sibilign and general sibling selectors are 
 not supported yet. But it is definitely possible in the future and I am working on it. And I could really use some help with Pull Requests.
 
 ## How do I know which things are not converted or omitted?

@@ -10,9 +10,6 @@ const {
   getBorderStyle,
   getFontWeight,
   getLineHeight,
-  getFlexWrap,
-  getFlexGrow,
-  getFlexShrink,
   getJustifyContent,
   getAlignItems,
   getTextAlign,
@@ -25,6 +22,18 @@ const {
   getVisibility,
   getZIndex,
 } = require('./utils');
+
+const {
+  getFlexDirection,
+  getFlexWrap,
+  getFlex,
+  getFlexGrow,
+  getFlexShrink,
+  getOrder,
+  getGridTemplateColumns,
+  getGridAutoFlow,
+  getGridAutoColumns,
+} = require('./utils/flexbox-grid');
 
 const IDENTITY_CLASSES = ['position'];
 
@@ -55,6 +64,12 @@ const TAILWIND_CLASSES = {
   'overscroll-behavior-x': getOverscrollBehaviorX,
   visibility: getVisibility,
   'z-index': getZIndex,
+  'flex-direction': getFlexDirection,
+  flex: getFlex,
+  order: getOrder,
+  'grid-template-columns': getGridTemplateColumns,
+  'grid-auto-flow': getGridAutoFlow,
+  'grid-auto-columns': getGridAutoColumns,
 };
 
 module.exports = {

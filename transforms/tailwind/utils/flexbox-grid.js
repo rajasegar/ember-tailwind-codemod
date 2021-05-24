@@ -21,11 +21,15 @@ function getFlex(decl) {
   const hash = {
     '1 1 0%': 'flex-1',
     '1 1 auto': 'flex-auto',
-    '0 1 auto': 'flex-iniital',
+    '0 1 auto': 'flex-initial',
     none: 'flex-none',
   };
 
   return hash[decl.value];
+}
+
+function getFlexGrow(decl) {
+  return decl.value === '1' ? decl.prop : `${decl.prop}-${decl.value}`;
 }
 
 function getOrder(decl) {
@@ -46,6 +50,26 @@ function getOrder(decl) {
     9999: 'order-last',
     0: 'order-none',
   };
+  return hash[decl.value];
+}
+
+function getGridTemplateColumns(decl) {
+  const hash = {
+    'repeat(1, minmax(0, 1fr))': 'grid-cols-1',
+    'repeat(2, minmax(0, 1fr))': 'grid-cols-2',
+    'repeat(3, minmax(0, 1fr))': 'grid-cols-3',
+    'repeat(4, minmax(0, 1fr))': 'grid-cols-4',
+    'repeat(5, minmax(0, 1fr))': 'grid-cols-5',
+    'repeat(6, minmax(0, 1fr))': 'grid-cols-6',
+    'repeat(7, minmax(0, 1fr))': 'grid-cols-7',
+    'repeat(8, minmax(0, 1fr))': 'grid-cols-8',
+    'repeat(9, minmax(0, 1fr))': 'grid-cols-9',
+    'repeat(10, minmax(0, 1fr))': 'grid-cols-10',
+    'repeat(11, minmax(0, 1fr))': 'grid-cols-11',
+    'repeat(12, minmax(0, 1fr))': 'grid-cols-12',
+    none: 'grid-cols-none',
+  };
+
   return hash[decl.value];
 }
 
@@ -154,10 +178,16 @@ function getPlaceSelf(decl) {
   return hash[decl.value];
 }
 
+function getFlexShrink(decl) {
+  return decl.value === '1' ? decl.prop : `${decl.prop}-${decl.value}`;
+}
+
 module.exports = {
   getFlexDirection,
   getFlexWrap,
   getFlex,
+  getFlexGrow,
+  getFlexShrink,
   getOrder,
   getGridAutoFlow,
   getGridAutoColumns,
@@ -168,4 +198,5 @@ module.exports = {
   getPlaceContent,
   getPlaceitems,
   getPlaceSelf,
+  getGridTemplateColumns,
 };

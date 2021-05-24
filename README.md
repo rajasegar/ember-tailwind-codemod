@@ -1,6 +1,6 @@
 # ember-tailwind-codemod
 
-![Build and Deploy](https://github.com/rajasegar/ember-aria-switch/workflows/CI/badge.svg)
+![Build and Deploy](https://github.com/rajasegar/ember-tailwind-codemod/workflows/CI/badge.svg)
 [![npm version](http://img.shields.io/npm/v/ember-tailwind-codemod.svg?style=flat)](https://npmjs.org/package/ember-tailwind-codemod "View this project on npm")
 
 

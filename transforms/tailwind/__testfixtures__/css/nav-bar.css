@@ -43,3 +43,7 @@
   position: relative;
   bottom: 5px;
 }
+
+.menu h2 {
+  font-weight: 700;
+}

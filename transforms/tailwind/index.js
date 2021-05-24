@@ -79,7 +79,7 @@ module.exports = function (file, parser, opts) {
   });
 
   try {
-    console.log(tailwindMappings);
+    //console.log(tailwindMappings);
     return transform(file, tailwindMappings);
   } catch (e) {
     throw new Error(

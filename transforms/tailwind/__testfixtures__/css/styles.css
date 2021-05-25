@@ -66,3 +66,19 @@
 h2 {
   font-weight: 700;
 }
+
+.etc-absolute {
+  position: absolute;
+}
+.etc-relative {
+  position: relative;
+}
+.etc-static {
+  position: static;
+}
+.etc-fixed {
+  position: fixed;
+}
+.etc-sticky {
+  position: sticky;
+}

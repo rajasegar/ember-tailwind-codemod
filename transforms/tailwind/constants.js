@@ -327,7 +327,7 @@ const TAILWIND_CLASSES = {
     '66.666667%': 'h-2/3',
     '75%': 'h-3/4',
     '100%': 'h-full',
-    '100vg': 'h-screen',
+    '100vh': 'h-screen',
   },
   'min-height': {
     '0px': 'min-h-0',
@@ -545,6 +545,48 @@ const TAILWIND_CLASSES = {
     absolute: 'absolute',
     relative: 'relative',
     sticky: 'sticky',
+  },
+  'justify-items': {
+    start: 'justify-items-start',
+    end: 'justify-items-end',
+    center: 'justify-items-center',
+    stretch: 'justify-items-stretch',
+  },
+  'justify-self': {
+    auto: 'justify-self-auto',
+    start: 'justify-self-start',
+    end: 'justify-self-end',
+    center: 'justify-self-center',
+    stretch: 'justify-self-stretch',
+  },
+  'align-self': {
+    auto: 'self-auto',
+    start: 'self-start',
+    end: 'self-end',
+    center: 'self-center',
+    stretch: 'self-stretch',
+  },
+  'place-content': {
+    center: 'place-content-center',
+    start: 'place-content-start',
+    end: 'place-content-end',
+    'space-between': 'place-content-between',
+    'space-around': 'place-content-around',
+    'space-evenly': 'place-content-evenly',
+    stretch: 'place-content-stretch',
+  },
+  'place-items': {
+    start: 'place-items-start',
+    end: 'place-items-end',
+    center: 'place-items-center',
+    stretch: 'place-items-stretch',
+  },
+  'place-self': {
+    auto: 'place-self-auto',
+    start: 'place-self-start',
+    end: 'place-self-end',
+    center: 'place-self-center',
+    stretch: 'place-self-stretch',
   },
 };
 

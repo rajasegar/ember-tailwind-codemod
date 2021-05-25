@@ -5,8 +5,7 @@ const transform = require('./transform');
 const postcss = require('postcss');
 const parsel = require('./parsel');
 
-const identity = (value) => value;
-const { TAILWIND_CLASSES, IDENTITY_CLASSES } = require('./constants');
+const { TAILWIND_CLASSES } = require('./constants');
 
 function getOptions() {
   let options = {};
@@ -43,13 +42,8 @@ module.exports = function (file, parser, opts) {
         // Get the list of Tailwind classes
         const tw = declarations
           .map((decl) => {
-            // if the class and property are same, return identity
-            if (IDENTITY_CLASSES.includes(decl.prop)) {
-              return identity(decl.value);
-            } else {
-              const prop = TAILWIND_CLASSES[decl.prop];
-              return prop ? prop[decl.value] : '';
-            }
+            const prop = TAILWIND_CLASSES[decl.prop];
+            return prop ? prop[decl.value] : '';
           })
           .join(' ');
 

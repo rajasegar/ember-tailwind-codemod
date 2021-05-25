@@ -1,7 +1,5 @@
 'use strict';
 
-const IDENTITY_CLASSES = ['position'];
-
 const TAILWIND_CLASSES = {
   display: {
     block: 'block',
@@ -541,9 +539,15 @@ const TAILWIND_CLASSES = {
     1: 'stroke-1',
     2: 'stroke-2',
   },
+  position: {
+    static: 'static',
+    fixed: 'fixed',
+    absolute: 'absolute',
+    relative: 'relative',
+    sticky: 'sticky',
+  },
 };
 
 module.exports = {
-  IDENTITY_CLASSES,
   TAILWIND_CLASSES,
 };

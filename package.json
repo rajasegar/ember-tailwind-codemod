@@ -3,8 +3,8 @@
   "version": "0.3.3",
   "scripts": {
     "lint": "eslint --cache .",
-    "test": "codemod-cli test --coverage",
-    "test:coverage": "codemod-cli test --coverage",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
     "update-docs": "codemod-cli update-docs",
     "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
     "copy": "cp ../super-rentals/app/components/*.hbs ./demo/templates && cp ../super-rentals/app/templates/*.hbs ./demo/templates && cp ../super-rentals/dist/assets/*.css ./demo/css",

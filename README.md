@@ -2,7 +2,7 @@
 
 ![Build and Deploy](https://github.com/rajasegar/ember-tailwind-codemod/workflows/CI/badge.svg)
 [![npm version](http://img.shields.io/npm/v/ember-tailwind-codemod.svg?style=flat)](https://npmjs.org/package/ember-tailwind-codemod "View this project on npm")
-[![Coverage Status](https://coveralls.io/repos/github/rajasegar/ember-tailwind-codemod/badge.svg?branch=)](https://coveralls.io/github/rajasegar/ember-tailwind-codemod?branch=)
+[![Coverage Status](https://coveralls.io/repos/github/rajasegar/ember-tailwind-codemod/badge.svg?branch=main)](https://coveralls.io/github/rajasegar/ember-tailwind-codemod?branch=main)
 
 
 A Codemod to convert plain CSS class definitions into [Tailwind](https://tailwindcss.com) utilities for your Ember Components

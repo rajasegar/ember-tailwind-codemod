@@ -13,6 +13,7 @@ specifiers:
   jest: ^26.6.3
   minimist: ^1.2.5
   ora: ^5.4.0
+  parsel-js: ^1.0.2
   postcss: ^8.2.15
   prettier: ^2.3.0
   workerpool: ^6.1.4
@@ -24,6 +25,7 @@ dependencies:
   globby: 11.0.3
   minimist: 1.2.5
   ora: 5.4.0
+  parsel-js: 1.0.2
   postcss: 8.2.15
   workerpool: 6.1.4
 
@@ -3798,6 +3800,10 @@ packages:
   /parse5/6.0.1:
     resolution: {integrity: sha512-Ofn/CTFzRGTTxwpNEs9PP93gXShHcTq255nzRYSKe8AkVpZY7e1fpmTfOyoIvjP5HG7Z2ZM7VS9PPhQGW2pOpw==}
     dev: true
+
+  /parsel-js/1.0.2:
+    resolution: {integrity: sha512-G8Wzng7kxh8k6trrL5U5Fv25r7WJ/s4SEo8B6AF/5qSMq6PfptKXSWvBYw3s6eEXKFjWIsMc5hxuekht5XRbng==}
+    dev: false
 
   /pascalcase/0.1.1:
     resolution: {integrity: sha1-s2PlXoAGym/iF4TS2yK9FdeRfxQ=}

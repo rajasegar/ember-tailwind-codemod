@@ -30,6 +30,7 @@
     "globby": "^11.0.3",
     "minimist": "^1.2.5",
     "ora": "^5.4.0",
+    "parsel-js": "^1.0.2",
     "postcss": "^8.2.15",
     "workerpool": "^6.1.4"
   },

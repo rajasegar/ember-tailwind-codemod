@@ -3,7 +3,7 @@ const fs = require('fs');
 const transform = require('./transform');
 
 const postcss = require('postcss');
-const parsel = require('./parsel');
+const parsel = require('parsel-js');
 
 const { TAILWIND_CLASSES } = require('./constants');
 

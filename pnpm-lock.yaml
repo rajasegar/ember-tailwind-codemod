@@ -16,6 +16,7 @@ specifiers:
   parsel-js: ^1.0.2
   postcss: ^8.2.15
   prettier: ^2.3.0
+  tailwind-mappings: ^1.0.0
   workerpool: ^6.1.4
 
 dependencies:
@@ -27,6 +28,7 @@ dependencies:
   ora: 5.4.0
   parsel-js: 1.0.2
   postcss: 8.2.15
+  tailwind-mappings: 1.0.0
   workerpool: 6.1.4
 
 devDependencies:
@@ -4530,6 +4532,10 @@ packages:
       string-width: 4.2.2
       strip-ansi: 6.0.0
     dev: true
+
+  /tailwind-mappings/1.0.0:
+    resolution: {integrity: sha512-orCH0lkBu1qwA+LSKoJP17GX6AmsgeyQfVlbL2PBYxYw4o4kO3IR6VvlbgWwnpoalQFOABIyGK+S9+Sq80+7aA==}
+    dev: false
 
   /temp/0.8.4:
     resolution: {integrity: sha512-s0ZZzd0BzYv5tLSptZooSjK8oj6C+c19p7Vqta9+6NPOf7r+fxq0cJe6/oN4LTC79sy5NY8ucOJNgwsKCSbfqg==}

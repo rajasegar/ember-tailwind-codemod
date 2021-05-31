@@ -5,7 +5,7 @@ const transform = require('./transform');
 const postcss = require('postcss');
 const parsel = require('parsel-js');
 
-const { TAILWIND_CLASSES } = require('./constants');
+const { TAILWIND_CLASSES } = require('tailwind-mappings');
 
 function getOptions() {
   let options = {};

@@ -5,7 +5,7 @@ const transform = require('./transform');
 const postcss = require('postcss');
 const parsel = require('parsel-js');
 
-const { TAILWIND_CLASSES } = require('tailwind-mappings');
+const { TAILWIND_CLASSES, getSpacingUtils, getBorderRadiusUtils } = require('tailwind-mappings');
 
 function getOptions() {
   let options = {};
@@ -43,7 +43,20 @@ module.exports = function (file, parser, opts) {
         const tw = declarations
           .map((decl) => {
             const prop = TAILWIND_CLASSES[decl.prop];
-            return prop ? prop[decl.value] : '';
+
+            if (decl.prop === 'padding') {
+              return getSpacingUtils(decl, 'padding');
+            } else if (decl.prop === 'margin') {
+              return getSpacingUtils(decl, 'margin');
+            } else if (decl.prop === 'border-radius') {
+              return getBorderRadiusUtils(decl);
+            } else {
+              // remove !important from values
+              let val = decl.value.replace(' !important', '');
+              //console.log(val);
+
+              return prop ? prop[val] : '';
+            }
           })
           .join(' ');
 

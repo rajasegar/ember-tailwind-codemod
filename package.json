@@ -1,6 +1,6 @@
 {
   "name": "ember-tailwind-codemod",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "scripts": {
     "lint": "eslint --cache .",
     "test": "jest",

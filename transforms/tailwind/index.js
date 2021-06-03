@@ -28,6 +28,19 @@ module.exports = function (file, parser, opts) {
     compounds: {},
   };
 
+  const spacingProps = [
+    'margin',
+    'margin-left',
+    'margin-right',
+    'margin-top',
+    'margin-bottom',
+    'padding',
+    'padding-left',
+    'padding-right',
+    'padding-top',
+    'padding-bottom',
+  ];
+
   // filter only css files
   const cssFiles = fs.readdirSync(options.css).filter((dirContent) => dirContent.endsWith('.css'));
   cssFiles.forEach((css) => {
@@ -44,10 +57,8 @@ module.exports = function (file, parser, opts) {
           .map((decl) => {
             const prop = TAILWIND_CLASSES[decl.prop];
 
-            if (decl.prop === 'padding') {
-              return getSpacingUtils(decl, 'padding');
-            } else if (decl.prop === 'margin') {
-              return getSpacingUtils(decl, 'margin');
+            if (spacingProps.includes(decl.prop)) {
+              return getSpacingUtils(decl, decl.prop);
             } else if (decl.prop === 'border-radius') {
               return getBorderRadiusUtils(decl);
             } else {

@@ -6,7 +6,7 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "update-docs": "codemod-cli update-docs",
-    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
+    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls -v",
     "copy": "cp ../super-rentals/app/components/*.hbs ./demo/templates && cp ../super-rentals/app/templates/*.hbs ./demo/templates && cp ../super-rentals/dist/assets/*.css ./demo/css",
     "demo": "./bin/cli.js demo/templates --css=demo/css",
     "clean": "npm run copy && rm *.txt",

@@ -78,7 +78,6 @@ module.exports = function ({ source, path }, tailwind) {
             // apply utilities for combinators
 
             combinatorsVisited.forEach((c) => {
-              debugger;
               markVisited(c.visited, node);
               if (isAllVisited(c.visited)) {
                 const lastSelector = c.visited[c.visited.length - 1].selector;

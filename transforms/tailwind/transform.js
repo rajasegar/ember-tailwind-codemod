@@ -2,8 +2,7 @@ const { transform } = require('ember-template-recast');
 const fs = require('fs');
 
 module.exports = function ({ source, path }, tailwind) {
-  const combinatorsVisited = [];
-  Object.keys(tailwind.combinators).forEach((combinator) => {
+  const combinatorsVisited = Object.keys(tailwind.combinators).map((combinator) => {
     const visited = [];
     combinator.split(' ').forEach((s) => {
       visited.push({
@@ -12,10 +11,10 @@ module.exports = function ({ source, path }, tailwind) {
       });
     });
 
-    combinatorsVisited.push({
+    return {
       combinator,
       visited,
-    });
+    };
   });
 
   return transform({
@@ -54,6 +53,8 @@ module.exports = function ({ source, path }, tailwind) {
               });
 
               if (newClass.length > 0) {
+                // Retain old classnames later for applying compounds
+                node.attributes.push(b.attr('data-old-class', b.text(classAttr.value.chars)));
                 classAttr.value.chars = newClass.join(' ').trimEnd();
               }
             }
@@ -77,6 +78,7 @@ module.exports = function ({ source, path }, tailwind) {
             // apply utilities for combinators
 
             combinatorsVisited.forEach((c) => {
+              debugger;
               markVisited(c.visited, node);
               if (isAllVisited(c.visited)) {
                 const lastSelector = c.visited[c.visited.length - 1].selector;
@@ -87,6 +89,9 @@ module.exports = function ({ source, path }, tailwind) {
                 }
               }
             });
+
+            // remove data-old-class
+            node.attributes = node.attributes.filter((a) => a.name !== 'data-old-class');
           },
           exit(node) {
             combinatorsVisited.forEach((c) => {
@@ -104,7 +109,9 @@ function isAllVisited(visited) {
 }
 
 function classMatch(node, selector) {
-  const classAttr = node.attributes.find((a) => a.name === 'class');
+  const classAttr =
+    node.attributes.find((a) => a.name === 'data-old-class') ||
+    node.attributes.find((a) => a.name === 'class');
   let values = [];
   if (classAttr) {
     if (classAttr.value.type === 'TextNode') {

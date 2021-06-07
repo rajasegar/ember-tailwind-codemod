@@ -9,7 +9,8 @@
     "copy": "cp ../super-rentals/app/components/*.hbs ./demo/templates && cp ../super-rentals/app/templates/*.hbs ./demo/templates && cp ../super-rentals/dist/assets/*.css ./demo/css",
     "demo": "./bin/cli.js demo/templates --css=demo/css",
     "clean": "npm run copy && rm *.txt",
-    "deploy": "git push && git push --tags && npm publish"
+    "deploy": "git push && git push --tags && npm publish",
+    "debug": "node --inspect-brk ./node_modules/jest/bin/jest.js"
   },
   "bin": "./bin/cli.js",
   "keywords": [
@@ -31,7 +32,7 @@
     "ora": "^5.4.0",
     "parsel-js": "^1.0.2",
     "postcss": "^8.2.15",
-    "tailwind-mappings": "^1.1.1",
+    "tailwind-mappings": "^1.5.2",
     "workerpool": "^6.1.4"
   },
   "devDependencies": {

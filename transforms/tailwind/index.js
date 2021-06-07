@@ -5,7 +5,8 @@ const transform = require('./transform');
 const postcss = require('postcss');
 const parsel = require('parsel-js');
 
-const { TAILWIND_CLASSES, getSpacingUtils, getBorderRadiusUtils } = require('tailwind-mappings');
+//const { TAILWIND_CLASSES, getSpacingUtils, getBorderRadiusUtils } = require('tailwind-mappings');
+const { getTailwindUtils } = require('tailwind-mappings');
 
 function getOptions() {
   let options = {};
@@ -28,19 +29,6 @@ module.exports = function (file, parser, opts) {
     compounds: {},
   };
 
-  const spacingProps = [
-    'margin',
-    'margin-left',
-    'margin-right',
-    'margin-top',
-    'margin-bottom',
-    'padding',
-    'padding-left',
-    'padding-right',
-    'padding-top',
-    'padding-bottom',
-  ];
-
   // filter only css files
   const cssFiles = fs.readdirSync(options.css).filter((dirContent) => dirContent.endsWith('.css'));
   cssFiles.forEach((css) => {
@@ -55,19 +43,7 @@ module.exports = function (file, parser, opts) {
         // Get the list of Tailwind classes
         const tw = declarations
           .map((decl) => {
-            const prop = TAILWIND_CLASSES[decl.prop];
-
-            if (spacingProps.includes(decl.prop)) {
-              return getSpacingUtils(decl, decl.prop);
-            } else if (decl.prop === 'border-radius') {
-              return getBorderRadiusUtils(decl);
-            } else {
-              // remove !important from values
-              let val = decl.value.replace(' !important', '');
-              //console.log(val);
-
-              return prop ? prop[val] : '';
-            }
+            return getTailwindUtils(decl);
           })
           .join(' ');
 

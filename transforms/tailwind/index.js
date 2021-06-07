@@ -52,22 +52,53 @@ module.exports = function (file, parser, opts) {
         // Only create mapping if tailwind utilities exists
         const selectorType = getSelectorType(node.selector);
         if (tw !== ' ') {
-          if (selectorType === 'class') {
-            tailwindMappings.classes[node.selector] = tw.trimStart().trimEnd();
-          } else if (selectorType === 'type') {
-            tailwindMappings.elements[node.selector] = tw.trimStart().trimEnd();
-          } else if (selectorType === 'complex') {
-            tailwindMappings.combinators[node.selector] = tw.trimStart().trimEnd();
-          } else {
-            // remove new line chars from selectors
-            const _selector = node.selector.replace('\n', '');
-            tailwindMappings.compounds[_selector] = tw.trimStart().trimEnd();
+          const trimmedValue = tw.trimStart().trimEnd();
+          switch (selectorType) {
+            case 'class':
+              tailwindMappings.classes[node.selector] = trimmedValue;
+              break;
+            case 'type':
+              tailwindMappings.elements[node.selector] = trimmedValue;
+              break;
+            case 'complex':
+              tailwindMappings.combinators[node.selector] = trimmedValue;
+              break;
+
+            default:
+              {
+                // remove new line chars from selectors
+                const _selector = node.selector.replace(/\n/g, '');
+                const selectors = _selector.split(',');
+                selectors.forEach((s) => {
+                  tailwindMappings.compounds[s.trimStart()] = trimmedValue;
+                });
+              }
+              break;
           }
         } else {
           // log the class name and file name
           fs.appendFile('UNMAPPED_SELECTORS.txt', `${fileName} : ${node.selector}\n`, (err) => {
             if (err) throw err;
           });
+        }
+      });
+  });
+
+  const pseudoClasses = [':hover', ':active', ':focus'];
+
+  // Copy pseudo classes to class mappings
+  pseudoClasses.forEach((pseudo) => {
+    Object.keys(tailwindMappings.compounds)
+      .filter((compound) => compound.includes(pseudo))
+      .forEach((compound) => {
+        const className = compound.replace(pseudo, '');
+        const utils = tailwindMappings.compounds[compound];
+        const prefix = pseudo.replace(':', '') + ':';
+        const hoverUtils = utils.split(' ').map((util) => `${prefix}${util}`);
+        const classMapping = tailwindMappings.classes[className];
+        if (classMapping) {
+          const newMapping = [...classMapping.split(' '), ...hoverUtils];
+          tailwindMappings.classes[className] = newMapping.join(' ');
         }
       });
   });

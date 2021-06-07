@@ -4,7 +4,7 @@
   "scripts": {
     "lint": "eslint --cache .",
     "test": "jest",
-    "test:coverage": "jest --coverage",
+    "coverage": "jest --coverage",
     "update-docs": "codemod-cli update-docs",
     "copy": "cp ../super-rentals/app/components/*.hbs ./demo/templates && cp ../super-rentals/app/templates/*.hbs ./demo/templates && cp ../super-rentals/dist/assets/*.css ./demo/css",
     "demo": "./bin/cli.js demo/templates --css=demo/css",

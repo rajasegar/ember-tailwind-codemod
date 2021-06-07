@@ -82,3 +82,20 @@ h2 {
 .etc-sticky {
   position: sticky;
 }
+
+.link {
+  text-decoration: none;
+  color: #123456;
+}
+
+.link:hover {
+  color: #dd0000;
+}
+
+.link:active {
+  color: #00dd00;
+}
+
+.link:focus {
+  border: 1px dotted black;
+}

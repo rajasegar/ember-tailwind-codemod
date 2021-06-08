@@ -26,13 +26,14 @@
   "dependencies": {
     "chalk": "^4.1.1",
     "codemod-cli": "^3.1.2",
+    "debug": "^4.3.1",
     "ember-template-recast": "^5.0.3",
     "globby": "^11.0.3",
     "minimist": "^1.2.5",
     "ora": "^5.4.0",
     "parsel-js": "^1.0.2",
     "postcss": "^8.2.15",
-    "tailwind-mappings": "^1.5.5",
+    "tailwind-mappings": "^1.5.6",
     "workerpool": "^6.1.4"
   },
   "devDependencies": {

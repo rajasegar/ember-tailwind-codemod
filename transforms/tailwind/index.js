@@ -1,6 +1,7 @@
 const { getOptions: getCLIOptions } = require('codemod-cli');
 const fs = require('fs');
 const transform = require('./transform');
+const debug = require('debug')('etc');
 
 const postcss = require('postcss');
 const parsel = require('parsel-js');
@@ -103,8 +104,34 @@ module.exports = function (file, parser, opts) {
       });
   });
 
+  // Copy class utils from compounds
+  Object.keys(tailwindMappings.compounds)
+    .filter((compound) => compound.startsWith('.'))
+    .forEach((className) => {
+      let classObj = tailwindMappings.classes[className];
+      if (classObj) {
+        classObj += ' ' + tailwindMappings.compounds[className];
+        tailwindMappings.classes[className] = classObj;
+      } else {
+        tailwindMappings.classes[className] = tailwindMappings.compounds[className];
+      }
+    });
+
+  // Copy element utils from compounds
+  Object.keys(tailwindMappings.compounds)
+    .filter((compound) => !compound.startsWith('.'))
+    .forEach((element) => {
+      let elementUtil = tailwindMappings.elements[element];
+      if (elementUtil) {
+        elementUtil += ' ' + tailwindMappings.compounds[element];
+        tailwindMappings.elements[element] = elementUtil;
+      } else {
+        tailwindMappings.elements[element] = tailwindMappings.compounds[element];
+      }
+    });
+
   try {
-    //console.log(tailwindMappings);
+    debug('Final Tailwind mappings:\n ', tailwindMappings);
     return transform(file, tailwindMappings);
   } catch (e) {
     throw new Error(

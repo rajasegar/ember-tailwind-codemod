@@ -3,6 +3,7 @@ lockfileVersion: 5.3
 specifiers:
   chalk: ^4.1.1
   codemod-cli: ^3.1.2
+  debug: ^4.3.1
   ember-template-recast: ^5.0.3
   eslint: ^7.26.0
   eslint-config-prettier: ^8.3.0
@@ -15,19 +16,20 @@ specifiers:
   parsel-js: ^1.0.2
   postcss: ^8.2.15
   prettier: ^2.3.0
-  tailwind-mappings: ^1.5.5
+  tailwind-mappings: ^1.5.6
   workerpool: ^6.1.4
 
 dependencies:
   chalk: 4.1.1
   codemod-cli: github.com/rajasegar/codemod-cli/a3cdaf67693ce5045fbcd02336a51b6f5f5ae464
+  debug: 4.3.1
   ember-template-recast: 5.0.3
   globby: 11.0.3
   minimist: 1.2.5
   ora: 5.4.0
   parsel-js: 1.0.2
   postcss: 8.2.15
-  tailwind-mappings: 1.5.5_postcss@8.2.15
+  tailwind-mappings: 1.5.6_postcss@8.2.15
   workerpool: 6.1.4
 
 devDependencies:
@@ -4801,8 +4803,8 @@ packages:
       strip-ansi: 6.0.0
     dev: true
 
-  /tailwind-mappings/1.5.5_postcss@8.2.15:
-    resolution: {integrity: sha512-2oX3LWZkB/iMQ0Ee/yv1yxJ3/XE125s2SJ/lx7eUI34IjJUS4Pg+MD1MbMKN/SQjP5Gx9oYqfnaOpB/hRRMRXw==}
+  /tailwind-mappings/1.5.6_postcss@8.2.15:
+    resolution: {integrity: sha512-Afst+MduHBiLGd6OZmwGyCRmscCMNap2sbRnIQ3D77h+CB5RPmu9OztKUvP5FhgZZD3gdTvs3wZlvO5o5FoI9A==}
     engines: {node: '>=12.0.0'}
     dependencies:
       chroma-js: 2.1.2

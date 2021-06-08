@@ -15,7 +15,7 @@ specifiers:
   parsel-js: ^1.0.2
   postcss: ^8.2.15
   prettier: ^2.3.0
-  tailwind-mappings: ^1.5.2
+  tailwind-mappings: ^1.5.5
   workerpool: ^6.1.4
 
 dependencies:
@@ -27,7 +27,7 @@ dependencies:
   ora: 5.4.0
   parsel-js: 1.0.2
   postcss: 8.2.15
-  tailwind-mappings: 1.5.2_postcss@8.2.15
+  tailwind-mappings: 1.5.5_postcss@8.2.15
   workerpool: 6.1.4
 
 devDependencies:
@@ -4801,15 +4801,17 @@ packages:
       strip-ansi: 6.0.0
     dev: true
 
-  /tailwind-mappings/1.5.2_postcss@8.2.15:
-    resolution: {integrity: sha512-MInUilH5/D3bPoVUPqarFa6ue7L2lS8/M7fdr8KnxUvY/rILu8ITdUxN8yz8AeN6ltUhXgEG+/PIrYb8lPHZDg==}
+  /tailwind-mappings/1.5.5_postcss@8.2.15:
+    resolution: {integrity: sha512-2oX3LWZkB/iMQ0Ee/yv1yxJ3/XE125s2SJ/lx7eUI34IjJUS4Pg+MD1MbMKN/SQjP5Gx9oYqfnaOpB/hRRMRXw==}
     engines: {node: '>=12.0.0'}
     dependencies:
       chroma-js: 2.1.2
+      debug: 4.3.1
       tailwindcss: 2.1.4_postcss@8.2.15
     transitivePeerDependencies:
       - autoprefixer
       - postcss
+      - supports-color
     dev: false
 
   /tailwindcss/2.1.4_postcss@8.2.15:

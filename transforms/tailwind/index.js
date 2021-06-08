@@ -43,7 +43,7 @@ module.exports = function (file, parser, opts) {
         // Get the list of Tailwind classes
         const tw = declarations
           .map((decl) => {
-            return getTailwindUtils(decl);
+            return getTailwindUtils(decl) || '';
           })
           .join(' ');
 

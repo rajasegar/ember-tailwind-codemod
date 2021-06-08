@@ -32,7 +32,7 @@
     "ora": "^5.4.0",
     "parsel-js": "^1.0.2",
     "postcss": "^8.2.15",
-    "tailwind-mappings": "^1.5.2",
+    "tailwind-mappings": "^1.5.5",
     "workerpool": "^6.1.4"
   },
   "devDependencies": {
